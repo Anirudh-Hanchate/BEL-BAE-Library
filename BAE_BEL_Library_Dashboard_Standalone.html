@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BAE – BEL Library Management System & Admin Portal</title>
+  <title>BAE – BEL Library Management System & Intranet Dashboard</title>
   <!-- Chart.js & FontAwesome -->
   <script>
 /*!
@@ -193,119 +193,7 @@
       100% { transform: scale(0.9); opacity: 0.7; }
     }
 
-    .btn-action-primary {
-      background: linear-gradient(135deg, var(--bel-cyan), var(--bel-blue-dark));
-      color: #fff;
-      border: none;
-      padding: 9px 18px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(0, 153, 255, 0.25);
-      transition: all 0.25s;
-    }
-
-    .btn-action-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 153, 255, 0.4);
-    }
-
-    .btn-action-secondary {
-      background: #FFFFFF;
-      color: var(--bel-blue-navy);
-      border: 1.5px solid var(--card-border);
-      padding: 9px 16px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.25s;
-    }
-
-    .btn-action-secondary:hover {
-      background: var(--bel-cyan-light);
-      border-color: var(--bel-cyan);
-      color: var(--bel-blue-dark);
-    }
-
-    /* Smart Search Hero Box */
-    .search-hero {
-      background: linear-gradient(135deg, #FFFFFF 0%, #F4F9FD 100%);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 22px 28px;
-      margin-bottom: 26px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .search-hero-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--bel-blue-navy);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .search-hero-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .search-input-container {
-      display: flex;
-      gap: 12px;
-      position: relative;
-    }
-
-    .search-input-field {
-      flex: 1;
-      background: #FFFFFF;
-      border: 2px solid #D0E4F7;
-      border-radius: 12px;
-      padding: 14px 20px 14px 48px;
-      font-size: 1rem;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.3s;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-    }
-
-    .search-input-field:focus {
-      border-color: var(--bel-cyan);
-      box-shadow: 0 0 0 4px var(--bel-cyan-glow);
-    }
-
-    .search-icon-inside {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--bel-cyan);
-      font-size: 1.15rem;
-    }
-
-    .search-dropdown-results {
-      margin-top: 14px;
-      background: #FFFFFF;
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 16px;
-      box-shadow: var(--shadow-md);
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    /* Interactive Clickable KPI Cards */
+    /* Interactive Clickable KPI Cards (Placed directly at top) */
     .kpi-section-title {
       font-size: 0.95rem;
       font-weight: 700;
@@ -426,7 +314,7 @@
       transform: translateX(4px);
     }
 
-    /* Charts & Wings Summary */
+    /* Middle Row: Charts & Wings Summary */
     .mid-grid {
       display: grid;
       grid-template-columns: 1.45fr 1fr;
@@ -541,6 +429,97 @@
       font-size: 0.85rem;
       font-weight: 700;
       color: var(--bel-blue-navy);
+    }
+
+    /* Smart Search Hero Box (Positioned Below Telemetry & Wings Summary) */
+    .search-hero {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F4F9FD 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 22px 28px;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-hero-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--bel-blue-navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-hero-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .search-input-container {
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .search-input-field {
+      flex: 1;
+      background: #FFFFFF;
+      border: 2px solid #D0E4F7;
+      border-radius: 12px;
+      padding: 14px 20px 14px 48px;
+      font-size: 1rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.3s;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .search-input-field:focus {
+      border-color: var(--bel-cyan);
+      box-shadow: 0 0 0 4px var(--bel-cyan-glow);
+    }
+
+    .search-icon-inside {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--bel-cyan);
+      font-size: 1.15rem;
+    }
+
+    .search-btn {
+      background: linear-gradient(135deg, var(--bel-cyan), var(--bel-blue-dark));
+      color: #fff;
+      border: none;
+      padding: 0 26px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(0, 153, 255, 0.35);
+      transition: all 0.25s;
+    }
+
+    .search-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 153, 255, 0.5);
+    }
+
+    .search-dropdown-results {
+      margin-top: 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-md);
+      display: none;
+      animation: fadeIn 0.3s ease;
     }
 
     /* Master Table & Sorting Controls */
@@ -661,23 +640,6 @@
     .wing-tag.tag-technology { background: #E0F2FE; color: #0369A1; }
     .wing-tag.tag-quality { background: #DCFCE7; color: #15803D; }
 
-    .btn-table-action {
-      background: #FFFFFF;
-      border: 1px solid #CBD5E1;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--bel-blue-navy);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-table-action:hover {
-      background: var(--bel-cyan-light);
-      border-color: var(--bel-cyan);
-      color: var(--bel-blue-dark);
-    }
-
     /* Modals / Popups */
     .modal-overlay {
       position: fixed;
@@ -761,75 +723,6 @@
       margin-bottom: 18px;
     }
 
-    /* Admin Form Styles */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-group.full-width {
-      grid-column: span 2;
-    }
-
-    .form-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--bel-blue-navy);
-    }
-
-    .form-control {
-      background: #F8FAFC;
-      border: 1.5px solid var(--card-border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.9rem;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.2s;
-    }
-
-    .form-control:focus {
-      border-color: var(--bel-cyan);
-      box-shadow: 0 0 0 3px var(--bel-cyan-glow);
-    }
-
-    .modal-footer {
-      padding: 16px 28px;
-      background: #F8FAFC;
-      border-top: 1px solid var(--card-border);
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
-    /* Toast Notification */
-    .toast-box {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #FFFFFF;
-      border-left: 5px solid var(--success);
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      padding: 16px 22px;
-      display: none;
-      align-items: center;
-      gap: 12px;
-      z-index: 2000;
-      animation: slideInRight 0.3s ease;
-    }
-
-    @keyframes slideInRight {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideDown { from { transform: translateY(-15px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @keyframes fadeInUp { from { transform: translateY(15px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -856,45 +749,14 @@
         </div>
       </div>
       <div class="header-actions">
-        <button class="btn-action-primary" onclick="openAddBookModal()">
-          <i class="fa-solid fa-plus"></i> Add New Book
-        </button>
-        <button class="btn-action-secondary" onclick="exportToCSV()">
-          <i class="fa-solid fa-file-excel"></i> Export Snapshot
-        </button>
         <div class="header-badge">
           <span class="live-dot"></span>
-          <span>INTRANET LIVE MASTER</span>
+          <span>INTRANET CENTRAL MASTER (VIEW ONLY)</span>
         </div>
       </div>
     </header>
 
-    <!-- Smart Search Bar -->
-    <section class="search-hero">
-      <div class="search-hero-title">
-        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--bel-cyan);"></i>
-        Smart Library Search
-      </div>
-      <p class="search-hero-sub">Search books by <strong>Book Name / Title</strong>, <strong>Serial No (J1, J2...)</strong>, or <strong>Author</strong>:</p>
-      
-      <div class="search-input-container">
-        <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
-        <input 
-          type="text" 
-          id="globalBookSearch" 
-          class="search-input-field" 
-          placeholder="Type any Book Name (e.g. 'Radar', 'Leadership', 'Six Sigma') or Serial Number..."
-          oninput="handleSearchInput()"
-        >
-        <button class="btn-action-primary" onclick="handleSearchInput()">
-          <i class="fa-solid fa-search"></i> Search
-        </button>
-      </div>
-
-      <div class="search-dropdown-results" id="searchDropdown"></div>
-    </section>
-
-    <!-- Interactive KPI Cards -->
+    <!-- 1. Collection Overview Metrics (Visible right at the top) -->
     <div class="kpi-section-title">
       <span>Collection Overview Metrics</span>
       <span class="kpi-hint"><i class="fa-solid fa-hand-pointer"></i> Click any card to pop up & view books</span>
@@ -974,7 +836,7 @@
       </div>
     </section>
 
-    <!-- Mid Grid: Charts & Wings Summary -->
+    <!-- 2. Mid Grid: BAE 3 Wings Stock Telemetry & BAE Wings Breakdown Summary -->
     <div class="mid-grid">
       <div class="panel-card">
         <div class="panel-header">
@@ -1044,7 +906,32 @@
       </div>
     </div>
 
-    <!-- Central Master Register Live Snapshot with High-End Sorting & Actions -->
+    <!-- 3. Smart Library Search (Moved Below Telemetry & Wings Summary) -->
+    <section class="search-hero">
+      <div class="search-hero-title">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--bel-cyan);"></i>
+        Smart Library Search
+      </div>
+      <p class="search-hero-sub">Search books by <strong>Book Name / Title</strong>, <strong>Serial No (J1, J2...)</strong>, or <strong>Author</strong>:</p>
+      
+      <div class="search-input-container">
+        <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+        <input 
+          type="text" 
+          id="globalBookSearch" 
+          class="search-input-field" 
+          placeholder="Type any Book Name (e.g. 'Radar', 'Leadership', 'Six Sigma') or Serial Number..."
+          oninput="handleSearchInput()"
+        >
+        <button class="search-btn" onclick="handleSearchInput()">
+          <i class="fa-solid fa-search"></i> Search
+        </button>
+      </div>
+
+      <div class="search-dropdown-results" id="searchDropdown"></div>
+    </section>
+
+    <!-- 4. Central Master Register Live Snapshot with High-End Sorting -->
     <section class="table-section">
       <div class="table-top-bar">
         <div>
@@ -1053,7 +940,7 @@
             Central Master Register Live Snapshot (J-Series)
           </h2>
           <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 3px;">
-            Full inventory management view with sorting, status update actions, and filters
+            Full inventory management view with multi-column sorting and instant wing/status filters
           </p>
         </div>
 
@@ -1095,7 +982,6 @@
               <th>Issue Type</th>
               <th>Due Date</th>
               <th>Location</th>
-              <th>Admin Action</th>
             </tr>
           </thead>
           <tbody id="masterTableBody"></tbody>
@@ -1105,12 +991,12 @@
 
   </div>
 
-  <!-- Filtered Books Pop-up Modal -->
-  <div class="modal-overlay" id="booksModal" onclick="closeModalOnBackdrop(event, 'booksModal')">
+  <!-- Reusable Interactive Pop-up / Modal for Books -->
+  <div class="modal-overlay" id="booksModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-card">
       <div class="modal-header">
         <h3 id="modalTitle"><i class="fa-solid fa-book-open"></i> Filtered Books</h3>
-        <button class="close-btn" onclick="closeModal('booksModal')"><i class="fa-solid fa-xmark"></i></button>
+        <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body">
         <div class="modal-summary-pill" id="modalBadge">
@@ -1126,7 +1012,7 @@
                 <th>Status</th>
                 <th>Borrower Info</th>
                 <th>Issue Type</th>
-                <th>Due Date</th>
+                <th>Due / Return Date</th>
                 <th>Location</th>
               </tr>
             </thead>
@@ -1134,113 +1020,6 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Admin Action Modal: Issue / Return / Status Change -->
-  <div class="modal-overlay" id="actionModal" onclick="closeModalOnBackdrop(event, 'actionModal')">
-    <div class="modal-card" style="max-width: 600px;">
-      <div class="modal-header">
-        <h3 id="actionModalTitle"><i class="fa-solid fa-pen-to-square"></i> Update Book Transaction</h3>
-        <button class="close-btn" onclick="closeModal('actionModal')"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="editSerial">
-        <div class="form-grid">
-          <div class="form-group full-width">
-            <label class="form-label">Book Information</label>
-            <div id="editBookSummary" style="font-weight:700; color:var(--bel-blue-navy); padding:10px; background:#F1F6FB; border-radius:8px;"></div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Update Status</label>
-            <select id="editStatus" class="form-control" onchange="toggleIssueFields()">
-              <option value="Available">Available (Return to shelf)</option>
-              <option value="Issued">Issued (Lend to employee)</option>
-              <option value="Missing">Missing (Audit record)</option>
-              <option value="Disposed">Disposed (Condemned)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Issue Type</label>
-            <select id="editIssueType" class="form-control">
-              <option value="Permanent (BEL Employee)">Permanent (BEL Employee)</option>
-              <option value="6 Months">6 Months</option>
-              <option value="12 Months">12 Months</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Borrower Name</label>
-            <input type="text" id="editBorrower" class="form-control" placeholder="e.g. Ramesh Kumar">
-          </div>
-          <div class="form-group">
-            <label class="form-label">BEL Staff No / Emp ID</label>
-            <input type="text" id="editStaffId" class="form-control" placeholder="e.g. BEL-10482">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Due / Expected Return Date</label>
-            <input type="date" id="editDueDate" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Shelf / Remarks</label>
-            <input type="text" id="editShelf" class="form-control" placeholder="e.g. Shelf L-01">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-action-secondary" onclick="closeModal('actionModal')">Cancel</button>
-        <button class="btn-action-primary" onclick="saveBookChanges()"><i class="fa-solid fa-check"></i> Save & Sync</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Admin Modal: Add New Book -->
-  <div class="modal-overlay" id="addBookModal" onclick="closeModalOnBackdrop(event, 'addBookModal')">
-    <div class="modal-card" style="max-width: 650px;">
-      <div class="modal-header">
-        <h3><i class="fa-solid fa-plus-circle"></i> Add New Book to BAE Library</h3>
-        <button class="close-btn" onclick="closeModal('addBookModal')"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label">Serial Number (J-Series)</label>
-            <input type="text" id="newSerial" class="form-control" placeholder="e.g. J13">
-          </div>
-          <div class="form-group">
-            <label class="form-label">BAE Wing</label>
-            <select id="newWing" class="form-control">
-              <option value="Leadership">Leadership Wing</option>
-              <option value="Technology">Technology Wing</option>
-              <option value="Quality">Quality Wing</option>
-            </select>
-          </div>
-          <div class="form-group full-width">
-            <label class="form-label">Book Title</label>
-            <input type="text" id="newTitle" class="form-control" placeholder="Full title of the publication">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Author Name</label>
-            <input type="text" id="newAuthor" class="form-control" placeholder="Author name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Shelf / Rack Location</label>
-            <input type="text" id="newShelf" class="form-control" placeholder="e.g. Shelf T-06">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-action-secondary" onclick="closeModal('addBookModal')">Cancel</button>
-        <button class="btn-action-primary" onclick="submitNewBook()"><i class="fa-solid fa-save"></i> Register Book</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Alert -->
-  <div class="toast-box" id="toastBox">
-    <i class="fa-solid fa-circle-check" style="color:var(--success); font-size:1.4rem;"></i>
-    <div>
-      <h4 style="font-size:0.9rem; color:var(--bel-blue-navy);" id="toastTitle">Success</h4>
-      <p style="font-size:0.8rem; color:var(--text-muted);" id="toastMsg">Changes updated successfully.</p>
     </div>
   </div>
 
@@ -1405,23 +1184,7 @@
   }
 ];
 
-    // Load from LocalStorage or use default
-    let libraryBooks = JSON.parse(localStorage.getItem('bae_books')) || defaultBooks;
-
-    function saveState() {
-      localStorage.setItem('bae_books', JSON.stringify(libraryBooks));
-      updateMetrics();
-      renderMasterTable();
-      updateChart();
-    }
-
-    function showToast(title, msg) {
-      const toast = document.getElementById('toastBox');
-      document.getElementById('toastTitle').textContent = title;
-      document.getElementById('toastMsg').textContent = msg;
-      toast.style.display = 'flex';
-      setTimeout(() => { toast.style.display = 'none'; }, 3500);
-    }
+    let libraryBooks = defaultBooks;
 
     function getStatusBadge(status) {
       if (status === 'Available') return `<span class="status-pill status-available"><i class="fa-solid fa-circle-check"></i> Available</span>`;
@@ -1436,13 +1199,12 @@
       return `<span class="wing-tag tag-quality">Quality</span>`;
     }
 
-    // ----------------- Metrics & Wing Count Calculation -----------------
     function updateMetrics() {
       const total = libraryBooks.length;
       const avail = libraryBooks.filter(b => b.status === 'Available').length;
       const issued = libraryBooks.filter(b => b.status === 'Issued').length;
       const overdue = libraryBooks.filter(b => b.overdue === true && b.status === 'Issued').length;
-      const perm = libraryBooks.filter(b => b.status === 'Issued' && b.type.startsWith('Permanent')).length;
+      const perm = libraryBooks.filter(b => b.status === 'Issued' && b.type && b.type.startsWith('Permanent')).length;
       const disp = libraryBooks.filter(b => b.status === 'Disposed' || b.status === 'Missing').length;
 
       document.getElementById('kpiTotal').textContent = total;
@@ -1461,7 +1223,7 @@
       document.getElementById('cntQuality').textContent = `${qualCnt} Books`;
     }
 
-    // ----------------- Smart Search -----------------
+    // ----------------- Smart Search Implementation -----------------
     function handleSearchInput() {
       const q = document.getElementById('globalBookSearch').value.trim().toLowerCase();
       const dropdown = document.getElementById('searchDropdown');
@@ -1495,10 +1257,9 @@
               <span style="color:var(--text-muted); font-size:0.8rem; margin-left:8px;">by ${b.author}</span>
               <span style="margin-left:8px;">${getWingTag(b.wing)}</span>
             </div>
-            <div style="display:flex; align-items:center; gap:12px;">
+            <div>
               ${getStatusBadge(b.status)}
-              <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">📍 ${b.shelf}</span>
-              <button class="btn-table-action" onclick="openActionModal('${b.serial}')"><i class="fa-solid fa-pen"></i> Update</button>
+              <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted); margin-left:12px;">📍 ${b.shelf}</span>
             </div>
           </div>
         `;
@@ -1547,7 +1308,7 @@
 
       tbody.innerHTML = '';
       filtered.forEach(b => {
-        const borrowerStr = b.borrower && b.borrower !== '-' ? `${b.borrower} (${b.staffId})` : '-';
+        const borrowerStr = b.borrower && b.borrower !== '-' ? `${b.borrower} (${b.staffId || ''})` : '-';
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong style="color:var(--bel-cyan); font-size:0.95rem;">${b.serial}</strong></td>
@@ -1561,13 +1322,12 @@
           <td>${b.type}</td>
           <td>${b.due}${b.overdue && b.status === 'Issued' ? ' <span style="color:var(--danger); font-weight:700;">(Overdue)</span>' : ''}</td>
           <td><span style="font-weight:600; color:var(--text-muted);">${b.shelf}</span></td>
-          <td><button class="btn-table-action" onclick="openActionModal('${b.serial}')"><i class="fa-solid fa-pen-to-square"></i> Update</button></td>
         `;
         tbody.appendChild(tr);
       });
     }
 
-    // ----------------- Filtered Modal Popups -----------------
+    // ----------------- Clickable KPI & Wings Modal Pop-up -----------------
     function openFilteredModal(filterType, title) {
       const modal = document.getElementById('booksModal');
       const modalTitle = document.getElementById('modalTitle');
@@ -1591,7 +1351,7 @@
       } else if (filterType === 'Overdue') {
         list = libraryBooks.filter(b => b.overdue === true && b.status === 'Issued');
       } else if (filterType === 'IssueType:Permanent') {
-        list = libraryBooks.filter(b => b.status === 'Issued' && b.type.startsWith('Permanent'));
+        list = libraryBooks.filter(b => b.status === 'Issued' && b.type && b.type.startsWith('Permanent'));
       }
 
       modalTitle.innerHTML = `<i class="fa-solid fa-book-open"></i> ${title}`;
@@ -1602,7 +1362,7 @@
         modalTbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:30px; color:var(--text-muted); font-weight:600;">No books match this category.</td></tr>`;
       } else {
         list.forEach(b => {
-          const borrowerStr = b.borrower && b.borrower !== '-' ? `${b.borrower} (${b.staffId})` : '-';
+          const borrowerStr = b.borrower && b.borrower !== '-' ? `${b.borrower} (${b.staffId || ''})` : '-';
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td><strong style="color:var(--bel-cyan);">${b.serial}</strong></td>
@@ -1621,188 +1381,47 @@
       modal.style.display = 'flex';
     }
 
-    // ----------------- Admin Action Modal: Update Book -----------------
-    function openActionModal(serial) {
-      const book = libraryBooks.find(b => b.serial === serial);
-      if (!book) return;
-
-      document.getElementById('editSerial').value = book.serial;
-      document.getElementById('editBookSummary').innerHTML = `
-        <span style="color:var(--bel-cyan); font-size:1.1rem; margin-right:8px;">${book.serial}</span>
-        <span>${book.title}</span> 
-        <span style="font-size:0.8rem; color:var(--text-muted);">(${book.wing} Wing)</span>
-      `;
-      document.getElementById('editStatus').value = book.status;
-      document.getElementById('editIssueType').value = book.type !== '-' ? book.type : 'Permanent (BEL Employee)';
-      document.getElementById('editBorrower').value = book.borrower !== '-' ? book.borrower : '';
-      document.getElementById('editStaffId').value = book.staffId !== '-' ? book.staffId : '';
-      document.getElementById('editDueDate').value = (book.due && book.due.includes('-')) ? book.due : '';
-      document.getElementById('editShelf').value = book.shelf || '';
-
-      toggleIssueFields();
-      document.getElementById('actionModal').style.display = 'flex';
+    function closeModal() {
+      document.getElementById('booksModal').style.display = 'none';
     }
 
-    function toggleIssueFields() {
-      const st = document.getElementById('editStatus').value;
-      const isIssued = (st === 'Issued');
-      document.getElementById('editIssueType').disabled = !isIssued;
-      document.getElementById('editBorrower').disabled = !isIssued;
-      document.getElementById('editStaffId').disabled = !isIssued;
-      document.getElementById('editDueDate').disabled = !isIssued;
-    }
-
-    function saveBookChanges() {
-      const serial = document.getElementById('editSerial').value;
-      const book = libraryBooks.find(b => b.serial === serial);
-      if (!book) return;
-
-      const st = document.getElementById('editStatus').value;
-      book.status = st;
-      book.shelf = document.getElementById('editShelf').value || book.shelf;
-
-      if (st === 'Issued') {
-        book.type = document.getElementById('editIssueType').value;
-        book.borrower = document.getElementById('editBorrower').value || 'BEL Employee';
-        book.staffId = document.getElementById('editStaffId').value || 'BEL-EMP';
-        const dDate = document.getElementById('editDueDate').value;
-        book.due = (book.type.startsWith('Permanent')) ? 'Permanent' : (dDate || '2026-12-31');
-        book.overdue = (book.due !== 'Permanent' && new Date(book.due) < new Date());
-      } else {
-        book.type = '-';
-        book.borrower = '-';
-        book.staffId = '-';
-        book.due = '-';
-        book.overdue = false;
-      }
-
-      saveState();
-      closeModal('actionModal');
-      showToast('Book Updated', `Serial ${book.serial} status changed to "${book.status}".`);
-    }
-
-    // ----------------- Add New Book -----------------
-    function openAddBookModal() {
-      const nextNum = libraryBooks.length + 1;
-      document.getElementById('newSerial').value = `J${nextNum}`;
-      document.getElementById('newTitle').value = '';
-      document.getElementById('newAuthor').value = '';
-      document.getElementById('newShelf').value = '';
-      document.getElementById('addBookModal').style.display = 'flex';
-    }
-
-    function submitNewBook() {
-      const serial = document.getElementById('newSerial').value.trim().toUpperCase();
-      const title = document.getElementById('newTitle').value.trim();
-      const wing = document.getElementById('newWing').value;
-      const author = document.getElementById('newAuthor').value.trim() || 'Unknown';
-      const shelf = document.getElementById('newShelf').value.trim() || 'General Shelf';
-
-      if (!serial || !title) {
-        alert('Please enter both Serial Number and Book Title.');
-        return;
-      }
-
-      if (libraryBooks.some(b => b.serial === serial)) {
-        alert(`Serial number ${serial} already exists! Use a unique serial.`);
-        return;
-      }
-
-      const newEntry = {
-        serial,
-        title,
-        author,
-        wing,
-        status: 'Available',
-        borrower: '-',
-        staffId: '-',
-        type: '-',
-        issueDate: '-',
-        due: '-',
-        shelf,
-        overdue: false
-      };
-
-      libraryBooks.push(newEntry);
-      saveState();
-      closeModal('addBookModal');
-      showToast('Book Added', `${serial}: "${title}" has been added to ${wing} Wing.`);
-    }
-
-    function closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
-    }
-
-    function closeModalOnBackdrop(e, modalId) {
-      if (e.target.id === modalId) {
-        closeModal(modalId);
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'booksModal') {
+        closeModal();
       }
     }
 
-    // ----------------- Export Snapshot as CSV -----------------
-    function exportToCSV() {
-      let csv = 'Serial,Book Title,Author,Wing,Status,Borrower,Staff ID,Issue Type,Due Date,Shelf\n';
-      libraryBooks.forEach(b => {
-        csv += `"${b.serial}","${b.title}","${b.author}","${b.wing}","${b.status}","${b.borrower}","${b.staffId}","${b.type}","${b.due}","${b.shelf}"\n`;
-      });
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.setAttribute('href', url);
-      link.setAttribute('download', `BAE_BEL_Library_Snapshot_${new Date().toISOString().slice(0,10)}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      showToast('Export Complete', 'Library inventory snapshot exported to CSV successfully.');
-    }
-
-    // ----------------- Chart Initialization -----------------
-    let wingChartInstance = null;
-
-    function getWingChartData() {
-      const wings = ['Leadership', 'Technology', 'Quality'];
-      const avail = wings.map(w => libraryBooks.filter(b => b.wing === w && b.status === 'Available').length);
-      const issued = wings.map(w => libraryBooks.filter(b => b.wing === w && b.status === 'Issued').length);
-      const disp = wings.map(w => libraryBooks.filter(b => b.wing === w && (b.status === 'Disposed' || b.status === 'Missing')).length);
-      return { avail, issued, disp };
-    }
-
-    function updateChart() {
-      if (!wingChartInstance) return;
-      const data = getWingChartData();
-      wingChartInstance.data.datasets[0].data = data.avail;
-      wingChartInstance.data.datasets[1].data = data.issued;
-      wingChartInstance.data.datasets[2].data = data.disp;
-      wingChartInstance.update();
-    }
-
+    // ----------------- Chart.js Initialization -----------------
     window.addEventListener('DOMContentLoaded', () => {
       updateMetrics();
       renderMasterTable();
 
       const ctxWing = document.getElementById('wingChart').getContext('2d');
-      const chartData = getWingChartData();
+      const wings = ['Leadership', 'Technology', 'Quality'];
+      const avail = wings.map(w => libraryBooks.filter(b => b.wing === w && b.status === 'Available').length);
+      const issued = wings.map(w => libraryBooks.filter(b => b.wing === w && b.status === 'Issued').length);
+      const disp = wings.map(w => libraryBooks.filter(b => b.wing === w && (b.status === 'Disposed' || b.status === 'Missing')).length);
 
-      wingChartInstance = new Chart(ctxWing, {
+      new Chart(ctxWing, {
         type: 'bar',
         data: {
           labels: ['Leadership', 'Technology', 'Quality'],
           datasets: [
             {
               label: 'Available on Shelf',
-              data: chartData.avail,
+              data: avail,
               backgroundColor: '#00A86B',
               borderRadius: 6
             },
             {
               label: 'Currently Issued',
-              data: chartData.issued,
+              data: issued,
               backgroundColor: '#0099FF',
               borderRadius: 6
             },
             {
               label: 'Disposed / Missing',
-              data: chartData.disp,
+              data: disp,
               backgroundColor: '#8B5CF6',
               borderRadius: 6
             }
