@@ -27,3 +27,4 @@ with open(out_file, 'w', encoding='utf-8') as f:
     f.write(html)
 
 print(f"Standalone HTML generated: {out_file} ({round(os.path.getsize(out_file)/1024, 1)} KB)")
+
