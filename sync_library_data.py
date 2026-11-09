@@ -1,37 +1,36 @@
 # ==============================================================================
 # BHARAT ELECTRONICS LIMITED (BEL) - BAE ACADEMICS & EXCELLENCE
-# CENTRAL LIBRARY AUTO-SYNC SCRIPT (Run by Library Administrator on Admin PC)
-# ==============================================================================
-# This script reads the Master Excel file edited by the Library Manager
-# and instantly generates/updates the web dashboard (HTML) and JSON data.
-# When saved in the shared network folder, ALL computers across the BEL intranet
-# see the updated dashboard immediately upon opening or refreshing!
+# COMPLETE INTRANET SYNC & STANDALONE HTML BUNDLER ENGINE
 # ==============================================================================
 
 import openpyxl
 import json
+import base64
 import os
 import sys
 from datetime import datetime
 
 EXCEL_FILE = 'BAE_BEL_Library_Management_System_Final.xlsx'
-JSON_FILE = 'books_data.json'
-HTML_TEMPLATE = 'BAE_BEL_Library_HighTech_Dashboard.html'
+STANDALONE_HTML = 'BAE_BEL_Library_Dashboard_Standalone.html'
+BASE_HTML = 'BAE_BEL_Library_HighTech_Dashboard.html'
+LOGO_FILE = 'bel_logo.jpg'
+CHART_FILE = 'chart.min.js'
+FA_FILE = 'all.min.css'
 
-def sync_library():
+def sync_and_bundle():
     print("=" * 70)
-    print(" BAE - BEL LIBRARY MANAGEMENT INTRANET SYNC ENGINE")
+    print(" BAE - BEL LIBRARY INTRANET 1-CLICK SYNC & BUNDLE ENGINE")
     print("=" * 70)
-    
+
     if not os.path.exists(EXCEL_FILE):
-        print(f"[ERROR] Excel file '{EXCEL_FILE}' not found in current folder!")
+        print(f"[ERROR] Excel file '{EXCEL_FILE}' not found!")
         return
 
-    print(f"[*] Reading master catalog from: {EXCEL_FILE}...")
+    print(f"[*] Step 1: Reading records from '{EXCEL_FILE}'...")
     try:
         wb = openpyxl.load_workbook(EXCEL_FILE, data_only=True)
     except PermissionError:
-        print(f"[WARNING] '{EXCEL_FILE}' is currently open in Excel. Please save and close it, or try again.")
+        print(f"[WARNING] '{EXCEL_FILE}' is currently open in Excel. Please save and close it, then re-run.")
         return
 
     ws = wb['Book Register']
@@ -40,12 +39,9 @@ def sync_library():
     for r in range(5, 2000):
         serial = ws.cell(row=r, column=1).value
         title = ws.cell(row=r, column=2).value
-        
-        # Stop when rows are empty
         if not serial or not title:
-            # Check if there are more rows or if this is the end
-            next_serial = ws.cell(row=r+1, column=1).value
-            if not next_serial:
+            # Check if there is an empty line or end of data
+            if not ws.cell(row=r+1, column=1).value:
                 break
             continue
 
@@ -57,13 +53,11 @@ def sync_library():
         due_date = ws.cell(row=r, column=10).value or '-'
         shelf = ws.cell(row=r, column=13).value or 'Shelf Location'
 
-        # Format date cleanly if datetime object
         if isinstance(due_date, datetime):
             due_str = due_date.strftime('%Y-%m-%d')
         else:
             due_str = str(due_date).strip()
 
-        # Check overdue
         overdue = False
         if status == 'Issued' and due_str not in ['-', 'N/A', 'Permanent', '']:
             try:
@@ -89,35 +83,51 @@ def sync_library():
 
     print(f"[+] Loaded {len(books)} books across Leadership, Technology & Quality wings.")
 
-    # 1. Save books_data.json
-    with open(JSON_FILE, 'w', encoding='utf-8') as f:
+    # Save books_data.json
+    with open('books_data.json', 'w', encoding='utf-8') as f:
         json.dump(books, f, indent=2, ensure_ascii=False)
-    print(f"[+] Data exported to '{JSON_FILE}'.")
 
-    # 2. Embed directly into the standalone HTML file so it works 100% offline without local server
-    if os.path.exists(HTML_TEMPLATE):
-        with open(HTML_TEMPLATE, 'r', encoding='utf-8') as f:
-            html_content = f.read()
+    print("[*] Step 2: Bundling data and offline assets into Standalone HTML...")
+    with open(BASE_HTML, 'r', encoding='utf-8') as f:
+        html = f.read()
 
-        # Find defaultBooks array in JS and update it
-        marker_start = "const defaultBooks = ["
-        marker_end = "];"
-        idx_start = html_content.find(marker_start)
-        if idx_start != -1:
-            idx_end = html_content.find(marker_end, idx_start)
-            if idx_end != -1:
-                json_books_js = json.dumps(books, indent=2, ensure_ascii=False)
-                new_js_block = f"const defaultBooks = {json_books_js};"
-                updated_html = html_content[:idx_start] + new_js_block + html_content[idx_end + len(marker_end):]
-                with open(HTML_TEMPLATE, 'w', encoding='utf-8') as f:
-                    f.write(updated_html)
-                print(f"[+] Embedded latest data into '{HTML_TEMPLATE}'.")
+    # Inject latest book array
+    marker_start = "const defaultBooks = ["
+    marker_end = "];"
+    idx_s = html.find(marker_start)
+    if idx_s != -1:
+        idx_e = html.find(marker_end, idx_s)
+        if idx_e != -1:
+            json_books_js = json.dumps(books, indent=2, ensure_ascii=False)
+            html = html[:idx_s] + f"const defaultBooks = {json_books_js};" + html[idx_e + len(marker_end):]
 
-    print("\n[SUCCESS] SYNC COMPLETE!")
+    # Inline FontAwesome CSS
+    if os.path.exists(FA_FILE):
+        with open(FA_FILE, 'r', encoding='utf-8') as f:
+            fa_css = f.read()
+        html = html.replace('<link rel="stylesheet" href="all.min.css">', f'<style>\n{fa_css}\n</style>')
+
+    # Inline Chart.js
+    if os.path.exists(CHART_FILE):
+        with open(CHART_FILE, 'r', encoding='utf-8') as f:
+            chart_js = f.read()
+        html = html.replace('<script src="chart.min.js"></script>', f'<script>\n{chart_js}\n</script>')
+
+    # Inline BEL Logo
+    if os.path.exists(LOGO_FILE):
+        with open(LOGO_FILE, 'rb') as f:
+            logo_b64 = 'data:image/jpeg;base64,' + base64.b64encode(f.read()).decode('utf-8')
+        html = html.replace('src="bel_logo.jpg"', f'src="{logo_b64}"')
+
+    # Save the standalone HTML file
+    with open(STANDALONE_HTML, 'w', encoding='utf-8') as f:
+        f.write(html)
+
+    file_size_kb = round(os.path.getsize(STANDALONE_HTML) / 1024, 1)
+    print(f"[+] Created 100% Standalone HTML: '{STANDALONE_HTML}' ({file_size_kb} KB)")
+    print("\n[SUCCESS] All-in-One Standalone Dashboard is Ready!")
     print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("All intranet computers opening the HTML file will now see the latest updated data!")
     print("=" * 70)
 
 if __name__ == '__main__':
-    sync_library()
-
+    sync_and_bundle()
